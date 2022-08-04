@@ -28,7 +28,7 @@ typedef struct
 }rettangolo;
 
 
-//Verifica che il rettangolo sia ben formato cioe` i punti no e se sono davvero rispettivamente in alto a sinistra e in basso a sinistra
+//Verifica che il rettangolo sia ben formato cioe` i punti no e se sono davvero rispettivamente uno in alto a sinistra e l`altro in basso a destra
 int degenere(rettangolo r);
 punto leggiPunto();
 rettangolo leggiRettangolo();
