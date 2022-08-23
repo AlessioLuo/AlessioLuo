@@ -1,4 +1,4 @@
-Si implementi una funzione ricorsiva per risolvere la torre di hanoi che, invece di stampare a video le istruzioni testuali,
+/*Si implementi una funzione ricorsiva per risolvere la torre di hanoi che, invece di stampare a video le istruzioni testuali,
 stampi su un file (aperto in modalità testuale e passato come argomento alla funzione) la sequenza di mosse e lo stato dei pioli dopo ogni mossa.
 */
 
