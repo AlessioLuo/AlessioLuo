@@ -5,7 +5,6 @@ typedef struct
     char autore[101];
     int anno;
 } libro;
-
 typedef struct {
     libro libri[100];
     int n_libri;
@@ -44,27 +43,36 @@ void scrivi_binario(FILE *f1,libreria lib);
 void stampa_libreria(libreria lib);
 
 
-
+/* prendo una libreria da un file testuale e la butto in un file binario,viceversa prendo una libreria da un file binario e la butto in un file testuale*/
 int main()
 {
     libreria lib,lib2;
     FILE *fin,*fout;
     printf("sizeof(libro) = %lu\n",sizeof(libro));
-    
-    fin = fopen("libri.txt","w");
-    if (fin!=NULL)
-    {
-      scrivi_testuale(fin, lib);
+
+    fin = fopen("libri.txt","r"); //apro in lettura testuale un file
+
+      lib = leggi_testuale(fin);  //leggo la libreria presente nel file e la salvo nella libreria lib
+      stampa_libreria(lib);    //stampa la libreria lib
+      fclose (fin);
+
+    fout = fopen("libri.dat","wb"); //apro in scrittua binaria un file
+
+      scrivi_binario(fout, lib); //scrivo nel file la libreria lib
+      fclose(fout);
+   
+    fin = fopen("libri.dat","rb");  //apro in lettura binaria un file 
+   
+      lib2 = leggi_binario(fin);  //leggo la libreria presente nel file e la salvo nella libreria lib2
+      stampa_libreria(lib2);   //stampo la libreria lib2
       fclose(fin);
-    }
-    else
-    {
-    return 0;
-    } 
+   
+    fout = fopen("libri2.txt","w");  //apro in scrittura testuale un file 
+    
+      scrivi_testuale(fout, lib2);  //scrivo nel file la libreria lib2 
+      fclose(fout);
     
 
-
-    
     return 0;
 }
 
@@ -136,3 +144,4 @@ void stampa_libreria(libreria lib)
         printf("%s\n %s\n %d\n",l.titolo,l.autore,l.anno);
     }
 }
+
