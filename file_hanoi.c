@@ -19,7 +19,7 @@ int main()
    
    int pioli[n+1][3];  //creo i pioli con altezza n+1
 
-    out = fopen("hanoi.txt","w");
+    out = fopen("file_hanoi.txt","w");
     
     fprintf(out,"Stato iniziale\n");
     initia(n,pioli);
